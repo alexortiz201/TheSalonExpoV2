@@ -212,11 +212,11 @@ function App() {
 	const searchBar = isOnSearchPage ? null : <SearchBar status="idle" />
 	useToast(data.toast)
 
-	const stagingUI = data.requestInfo.origin.indexOf('staging') < 0 ? 'border-double border-2 border-sky-500' : ''
+	const showStagingUI = data.requestInfo.origin.indexOf('staging') >= 0 ? ' border-double border-2 border-sky-500' : ''
 
 	return (
 		<>
-			<div className={`flex h-screen flex-col justify-between ${stagingUI}`}>
+			<div className={`flex h-screen flex-col justify-between${showStagingUI}`}>
 				<header className="container py-6">
 					<nav className="flex flex-wrap items-center justify-between gap-4 sm:flex-nowrap md:gap-8">
 						<Logo />
