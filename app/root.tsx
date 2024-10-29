@@ -76,8 +76,8 @@ export const links: LinksFunction = () => {
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
 	return [
-		{ title: data ? 'Epic Notes' : 'Error | Epic Notes' },
-		{ name: 'description', content: `Your own captain's log` },
+		{ title: data ? `The Salon Expo` : `Error | The Salon Expo` },
+		{ name: 'description', content: `Welcome to NJ's top Salon` },
 	]
 }
 
@@ -212,9 +212,11 @@ function App() {
 	const searchBar = isOnSearchPage ? null : <SearchBar status="idle" />
 	useToast(data.toast)
 
+	const stagingUI = data.requestInfo.origin.indexOf('staging') < 0 ? 'border-double border-2 border-sky-500' : ''
+
 	return (
 		<>
-			<div className="flex h-screen flex-col justify-between">
+			<div className={`flex h-screen flex-col justify-between ${stagingUI}`}>
 				<header className="container py-6">
 					<nav className="flex flex-wrap items-center justify-between gap-4 sm:flex-nowrap md:gap-8">
 						<Logo />
